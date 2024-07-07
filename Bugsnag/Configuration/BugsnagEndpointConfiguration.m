@@ -12,8 +12,8 @@
 
 - (instancetype)init {
     if ((self = [super init])) {
-        _notify = @"https://notify.bugsnag.com";
-        _sessions = @"https://sessions.bugsnag.com";
+        _notify = @"http://127.0.0.1:8000";
+        _sessions = @"http://127.0.0.1:8000";
     }
     return self;
 }
