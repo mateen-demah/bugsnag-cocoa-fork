@@ -40,12 +40,16 @@ BSG_OBJC_DIRECT_MEMBERS
 
 + (BugsnagClient *_Nonnull)start {
     BugsnagConfiguration *configuration = [BugsnagConfiguration loadConfig];
+    configuration.telemetry &= ~BSGTelemetryInternalErrors;
+    configuration.telemetry &= ~BSGTelemetryUsage;
     return [self startWithConfiguration:configuration];
 }
 
 + (BugsnagClient *_Nonnull)startWithApiKey:(NSString *_Nonnull)apiKey {
     BugsnagConfiguration *configuration = [BugsnagConfiguration loadConfig];
     configuration.apiKey = apiKey;
+    configuration.telemetry &= ~BSGTelemetryInternalErrors;
+    configuration.telemetry &= ~BSGTelemetryUsage;
     return [self startWithConfiguration:configuration];
 }
 
