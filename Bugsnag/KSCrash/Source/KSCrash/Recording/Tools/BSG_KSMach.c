@@ -409,7 +409,5 @@ bool bsg_ksmachisBeingTraced(void) {
         return false;
     }
 
-    
-    return false;
-//    return (procInfo.kp_proc.p_flag & P_TRACED) != 0;
+    return (procInfo.kp_proc.p_flag & P_TRACED) != 0;
 }
