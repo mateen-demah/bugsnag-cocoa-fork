@@ -399,16 +399,17 @@ double bsg_ksmachtimeDifferenceInSeconds(const uint64_t endTime,
  * @return true if we're being traced.
  */
 bool bsg_ksmachisBeingTraced(void) {
+    struct kinfo_proc procInfo;
+    size_t structSize = sizeof(procInfo);
+    int mib[] = {CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()};
+
+    if (sysctl(mib, sizeof(mib) / sizeof(*mib), &procInfo, &structSize, NULL,
+               0) != 0) {
+        BSG_KSLOG_ERROR("sysctl: %s", strerror(errno));
+        return false;
+    }
+
+    
     return false;
-//    struct kinfo_proc procInfo;
-//    size_t structSize = sizeof(procInfo);
-//    int mib[] = {CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()};
-//
-//    if (sysctl(mib, sizeof(mib) / sizeof(*mib), &procInfo, &structSize, NULL,
-//               0) != 0) {
-//        BSG_KSLOG_ERROR("sysctl: %s", strerror(errno));
-//        return false;
-//    }
-//
 //    return (procInfo.kp_proc.p_flag & P_TRACED) != 0;
 }
