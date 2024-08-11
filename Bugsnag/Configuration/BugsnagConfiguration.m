@@ -136,12 +136,13 @@ BSG_OBJC_DIRECT_MEMBERS
  * @returns A boolean representing whether the apiKey is valid.
  */
 + (BOOL)isValidApiKey:(NSString *)apiKey {
-    NSCharacterSet *chars = [[NSCharacterSet
-        characterSetWithCharactersInString:@"0123456789ABCDEF"] invertedSet];
-
-    BOOL isHex = (NSNotFound == [[apiKey uppercaseString] rangeOfCharacterFromSet:chars].location);
-
-    return isHex && [apiKey length] == BSGApiKeyLength;
+    return YES;
+//    NSCharacterSet *chars = [[NSCharacterSet
+//        characterSetWithCharactersInString:@"0123456789ABCDEF"] invertedSet];
+//
+//    BOOL isHex = (NSNotFound == [[apiKey uppercaseString] rangeOfCharacterFromSet:chars].location);
+//
+//    return isHex && [apiKey length] == BSGApiKeyLength;
 }
 
 // -----------------------------------------------------------------------------

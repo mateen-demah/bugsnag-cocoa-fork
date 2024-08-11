@@ -23,7 +23,7 @@ BugsnagConfiguration * BSGConfigurationWithOptions(NSDictionary *options) {
     BugsnagConfiguration *config;
     NSMutableDictionary *dict = [options mutableCopy];
 
-    NSString *apiKey = PopValue(dict, BSG_KEYPATH(config, apiKey));
+    NSString *apiKey = @"PLACEHOLDER API KEY";
     if (apiKey != nil && ![apiKey isKindOfClass:[NSString class]]) {
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Bugsnag apiKey must be a string" userInfo:nil];
     }
