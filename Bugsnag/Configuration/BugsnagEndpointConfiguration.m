@@ -12,8 +12,8 @@
 
 - (instancetype)init {
     if ((self = [super init])) {
-        _notify = @"http://127.0.0.1:8000";
-        _sessions = @"http://127.0.0.1:8000";
+        _notify = @"http://127.0.0.1:8000/crash";
+        _sessions = @"http://127.0.0.1:8000/session";
     }
     return self;
 }
